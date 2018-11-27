@@ -1,12 +1,12 @@
 cat << END >> $L_MAKEFILE
 
 install:
-	test -d /usr/local/lk || mkdir -p /usr/local/lk
-	test -d /usr/local/lk/config || cp -rf config /usr/local/lk/config
-	test -d /usr/local/lk/certificate || cp -rf certificate /usr/local/lk/certificate
-	test -d /usr/local/lk/log || mkdir -p /usr/local/lk/logs
-	test -d /usr/local/lk/sbin || mkdir -p /usr/local/lk/sbin
-	cp objs/lk /usr/local/lk/sbin/
+	test -d /usr/local/ktunnel || mkdir -p /usr/local/ktunnel
+	test -d /usr/local/ktunnel/config || cp -rf config /usr/local/ktunnel/config
+	test -d /usr/local/ktunnel/certificate || cp -rf certificate /usr/local/ktunnel/certificate
+	test -d /usr/local/ktunnel/log || mkdir -p /usr/local/ktunnel/logs
+	test -d /usr/local/ktunnel/sbin || mkdir -p /usr/local/ktunnel/sbin
+	cp objs/ktunnel /usr/local/ktunnel/sbin/
 END
 
 cat << END >> Makefile

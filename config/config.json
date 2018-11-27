@@ -8,8 +8,8 @@
 	"log_error":true,
 	"log_debug":false,
 
-	"sslcrt":"/usr/local/lk/certificate/server.crt",
-	"sslkey":"/usr/local/lk/certificate/server.key",
+	"sslcrt":"/usr/local/ktunnel/certificate/server.crt",
+	"sslkey":"/usr/local/ktunnel/certificate/server.key",
 
 	"tunnel":{
 		"mode":"single"
