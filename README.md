@@ -4,16 +4,17 @@ K-tunnel是一个SSL tunnel(翻墙模式)，同时也是一个http proxy。全�
 双向SSL加密。安全性高。信息只能在ip层面进行跟踪。应用流量只能阻隔，无法篡改，跟踪。</br>
 采用事件驱动，多进程模式。包含完整的信号管理以及进程管理，日志。</br>
 性能十分的不错，同时对硬件资源的要求十分的低。适合各种低性能的硬件环境。SSL tunnel client 模式工作在1G DDR2 RAM的树莓派2上，正常的使用程度。cpu与内存的使用率基本维持维持在2%。
+![example](./google.png)
 # Install
 依赖OpenSSL库。确保有OpenSSL库之后，到根目录运行。
 * configure
 * make && make install </br>
-安装完成后，在/usr/local/lk目录可看到安装完成后的文件。
-运行/usr/local/lk/sbin目录下的elf文件即可使用，但是使用之前可能需要了解配置。
-> * /usr/local/lk/conf - 配置文件目录。
-> * /usr/local/lk/logs - pid，日志文件目录。
-> * /usr/local/lk/sbin - elf执行文件所在目录。
-> * /usr/local/lk/certificate  - ssl文件目录
+安装完成后，在/usr/local/ktunnel 目录可看到安装完成后的文件。
+运行/usr/local/ktunnel/sbin目录下的elf文件即可使用，但是使用之前可能需要了解配置。
+> * /usr/local/ktunnel/conf - 配置文件目录。
+> * /usr/local/ktunnel/logs - pid，日志文件目录。
+> * /usr/local/ktunnel/sbin - elf执行文件所在目录。
+> * /usr/local/ktunnel/certificate  - ssl文件目录
 # Command line parameters
 * -stop </br>
 作用是停止后台所有进程。</br>
@@ -34,8 +35,8 @@ reload all worker process
 	"log_error":true,
 	"log_debug":false,
 
-	"sslcrt":"/usr/local/lk/www/certificate/server.crt",
-	"sslkey":"/usr/local/lk/www/certificate/server.key",
+	"sslcrt":"/usr/local/ktunnel/certificate/server.crt",
+	"sslkey":"/usr/local/ktunnel/certificate/server.key",
 
 	"tunnel":{
 		"mode":"single"
