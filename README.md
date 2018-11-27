@@ -61,8 +61,8 @@ reload all worker process
 
 # Tips
 * single模式使用7325端口。
-> * brower ------- single ---------- Internet
+> * browser ------- single ---------- Internet
 
 * client模式使用的端口与single一样也是7325。通常情况浏览器的代理信息设置到7325端口。
 * server使用7324端口。server的7324端口与client的任意端口形成SSL tunnel加密通道。以确保传输的信息的安全。
-> * brower ------- SSL client ======= SSL server ----- Internet
+> * browser ------- SSL client ======= SSL server ----- Internet
