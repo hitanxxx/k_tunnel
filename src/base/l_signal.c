@@ -33,8 +33,7 @@ static void l_signal_child_status( void )
 		}
 	}
 	// unlock accept mutex if accept mutex on and dead process using
-	if( !conf.perf_switch && conf.accept_mutex &&
-		!conf.reuse_port && process_num > 1 ) {
+	if( conf.accept_mutex && !conf.reuse_port && process_num > 1 ) {
 		if( accept_mutex_user && ( accept_mutex_user == pid ) ) {
 			__sync_fetch_and_add( &accept_mutex, 1 );
 		}

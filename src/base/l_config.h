@@ -16,24 +16,10 @@ typedef struct config_t
 	// log
 	uint32		log_debug;
 	uint32		log_error;
-	// http
-	uint32		http_keepalive;
 	uint32		http_access_log;
-	uint32 		http_n;
-	uint32		http[10];
-	uint32		https_n;
-	uint32		https[10];
-	string_t	home;
-	string_t	index;
 	// tunnel
 	uint32		tunnel_mode;
 	string_t	serverip;
-	// perf
-	uint32  	perf_switch;
-	// lktp
-	uint32		lktp_mode;
-	string_t 	lktp_serverip;
-
 }config_t;
 
 extern config_t conf;

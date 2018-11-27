@@ -71,7 +71,7 @@ static status config_parse_global( json_t * json )
 		if( OK != access( str, F_OK ) ) {
 			err_log("%s --- sslcrt file [%.*s] not found", __func__,
 			conf.sslcrt.len, conf.sslcrt.data );
-			conf.sslcrt.len = 0;
+			return ERROR;
 		}
 	}
 	if( OK == json_get_obj_str(root_obj, "sslkey", l_strlen("sslkey"), &v ) ) {
@@ -82,7 +82,7 @@ static status config_parse_global( json_t * json )
 		if( OK != access( str, F_OK ) ) {
 			err_log("%s --- sslkey file [%.*s] not found", __func__,
 		 	conf.sslkey.len, conf.sslkey.data );
-			conf.sslkey.len = 0;
+			return ERROR;
 		}
 	}
 	if( OK == json_get_obj_bool(root_obj, "log_error", l_strlen("log_error"), &v ) ) {

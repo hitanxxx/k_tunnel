@@ -20,7 +20,7 @@ status listen_add( uint32 port, listen_pt handler, uint32 type )
 	listen->port = port;
 	listen->type = type;
 	listen->c = NULL;
-	if( !conf.perf_switch && conf.reuse_port && process_num > 1 ) {
+	if( conf.reuse_port && process_num > 1 ) {
 		listen->reuse_port = 1;
 	}
 	mem_list_create( &listen->list, sizeof(listen_t) );

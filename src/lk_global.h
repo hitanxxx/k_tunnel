@@ -40,17 +40,10 @@
 #include <netinet/tcp.h>
 #include <sys/sendfile.h>
 //
-#define 	L_PATH_PIDFILE			"/usr/local/lk/logs/pid"
-#define 	L_PATH_CONFIG			"/usr/local/lk/config/config.json"
-#define 	L_PATH_LOG_MAIN			"/usr/local/lk/logs/l_log"
-#define 	L_PATH_LOG_ACCESS		"/usr/local/lk/logs/l_access"
-
-#define 	HTTP_METHOD_GET		0x000a
-#define		HTTP_METHOD_HEAD	0x000b
-#define 	HTTP_METHOD_POST	0x000c
-#define 	HTTP_METHOD_PUT		0x000d
-#define 	HTTP_METHOD_DELETE	0x000e
-#define 	HTTP_METHOD_CONNECT	0x000f
+#define 	L_PATH_PIDFILE			"/usr/local/ktunnel/logs/pid"
+#define 	L_PATH_CONFIG			"/usr/local/ktunnel/config/config.json"
+#define 	L_PATH_LOG_MAIN			"/usr/local/ktunnel/logs/l_log"
+#define 	L_PATH_LOG_ACCESS		"/usr/local/ktunnel/logs/l_access"
 
 #define OK 					0
 #define ERROR 				-1
@@ -79,7 +72,6 @@ typedef int32_t		int32;
 typedef uint32_t	uint32;
 typedef int32_t     status;
 typedef volatile uint32	l_atomic_t;
-
 typedef struct connection_t connection_t;
 
 #endif

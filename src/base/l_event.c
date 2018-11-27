@@ -320,25 +320,6 @@ status event_process_init( void )
 		err_log( "%s --- epoll create1", __func__ );
 		return ERROR;
 	}
-
-	if( conf.perf_switch ) {
-		if( process_id == 0xffff || ( process_id == process_num - 1 ) ) {
-			for( i = 0; i < listens->elem_num; i ++ ) {
-				listen_head = mem_list_get( listens, i+1 );
-				if( OK != net_alloc( &c ) ) {
-					err_log( "%s --- net alloc", __func__ );
-					return ERROR;
-				}
-				c->fd = listen_head->fd;
-				c->read->f_accept = 1;
-				c->read->handler = event_accept;
-				c->data = listen_head;
-				listen_head->c = c;
-				event_opt( listen_head->c->read, EVENT_READ );
-			}
-		}
-		return OK;
-	}
 	for( i = 0; i < listens->elem_num; i ++ ) {
 		listen_head = mem_list_get( listens, i+1 );
 		if( conf.reuse_port && process_num > 1 ) {
@@ -386,8 +367,7 @@ status event_process_end( void )
 // event_init -----------------
 status event_init( void )
 {
-	if( !conf.perf_switch && conf.accept_mutex &&
-		!conf.reuse_port && process_num > 1 ) {
+	if( conf.accept_mutex && !conf.reuse_port && process_num > 1 ) {
 		accept_mutex_open = 1;
 		accept_mutex = (sem_t*) mmap(NULL, sizeof(sem_t), PROT_READ|PROT_WRITE,
 		MAP_ANON|MAP_SHARED, -1, 0);
